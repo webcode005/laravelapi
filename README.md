@@ -1,9 +1,9 @@
 Most common Status / Response Codes are as below :-
 
-422 : Unprocessable Entity (validation failed)
-200 : Successful OK
-201 : Data Created
-202 : Data Updated & Deleted
+- 422 : Unprocessable Entity (validation failed)
+- 200 : Successful OK
+- 201 : Data Created
+- 202 : Data Updated & Deleted
 
 
 
