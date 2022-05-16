@@ -29,6 +29,35 @@ class APIController extends Controller
 
         }
 
+        public function getUsersList(Request $request)
+        {
+
+                $header = $request->header('Authorization');
+            
+                if(!empty($header))
+                {
+                        if ($header == "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4MTc4MTI0MjkwIiwibmFtZSI6IkJhc2FudCBNYWxsaWNrIiwiaWF0IjoxNTE2MjM5MDIyfQ.hAXBOI4cCw5Is2k3Do_62CZrGbOId0koJ88a-qInmTw") 
+                        {
+                            
+                            $users = User::get();
+                                return response()->json(["users"=>$users],200); 
+
+                        } 
+                        else
+                        {
+                            $message = "Header Authorization is Failed!";
+                            return response()->json(["status"=>false,"message"=>$message],422); 
+                        }
+                        
+                }
+                else
+                {
+                    $message = "Header Authorization is missing!";
+                    return response()->json(["status"=>false,"message"=>$message],422); 
+                }
+
+        }
+
         public function addUsers(Request $request)
         {
             //print_r($request->input());
